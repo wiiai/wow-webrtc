@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "webrtc",
+      "script": "live.js",
+      "max_memory_restart": "60M",
+      "out_file": "/data/log/webrtc/out.log",
+      "error_file": "/data/log/webrtc/error.log",
+      "log_file": "/data/log/webrtc/log.log",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "watch": ["public", "live.js", "main.js"]
+    }
+  ]
+}

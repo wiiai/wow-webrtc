@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hello world</title>
+  <link rel="stylesheet" href="./live.css">
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{ name }}</h2>
+    <ul>
+      <li v-for="item in users">
+        <span>{{ item }}</span>
+        <button @click="call(item)">call</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="main-page">
+    <div id="main-left">
+      <div id="me">
+        hello
+      </div>
+      <div class='user-list'>
+        <ul id="user-list">
+        </ul>
+      </div>
+    </div>
+    <div id="main-right">
+      <div id="local-video">
+        <video autoplay controls id="video-local"></video>
+      </div>
+      <div id="videos"></div>
+    </div>
+  </div>
+  <script src="./live.js"></script>
+</body>
+</html>

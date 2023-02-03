@@ -1,0 +1,37 @@
+#main-page {
+  width: 100%;
+  overflow: hidden;
+}
+#main-page::after {
+  clear: both;
+}
+#main-left {
+  width: 30%;
+  float: left;
+}
+#main-right {
+  width: 70%;
+  float: right;
+}
+#user-list {
+  width: 300px;
+  padding: 0px;
+  margin: 0px;
+}
+#user-list li {
+  padding: 2.5px 10px;
+  border: 1px #ccc solid;
+  list-style: none;
+  margin-bottom: 5px;
+  background-color: azure;
+}
+#user-list li dl {
+  overflow: hidden;
+}
+#user-list li dl dd {
+  float: left;
+}
+
+#video-local {
+  width: 800px;
+}
