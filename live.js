@@ -13,12 +13,18 @@ const io = require("socket.io")(server);
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const connections = {}
+app.use((req, res, next) => {
+  console.log(req.url);
+  res.end(`hello world`);
+  next();
+})
+
+const connections = {};
 
 io.on("connection", (socket) => {
   socket.join(socket.id);
 
-  connections[socket.id]= socket;
+  connections[socket.id] = socket;
   console.log("a user connected " + socket.id);
 
   socket.broadcast.emit("user-online", socket.id);
@@ -28,11 +34,11 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("user-offline", socket.id);
   });
 
-  socket.on('online-feedback', id => {
+  socket.on("online-feedback", (id) => {
     if (connections[id]) {
       connections[id].emit("online-feedback", socket.id);
     }
-  })
+  });
 
   // sdp 消息的转发
   socket.on("sdp", (data) => {
