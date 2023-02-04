@@ -3,7 +3,12 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 
-const server = require("http").createServer(app);
+let sslOptions = {
+  key: fs.readFileSync("./local/localhost+2-key.pem"), //里面的文件替换成你生成的私钥
+  cert: fs.readFileSync("./local/localhost+2.pem"), //里面的文件替换成你生成的证书
+};
+
+const server = require("https").createServer(sslOptions, app);
 const io = require("socket.io")(server);
 
 app.use(express.static(path.join(__dirname, "public")));
